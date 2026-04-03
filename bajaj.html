@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bajaj General</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f2f2f2;
+            color: #0056a6;
+        }
+
+        /* Top Header */
+        .header {
+            background: #005fa3;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .header img {
+            width: 40px;
+            margin-right: 10px;
+        }
+
+        /* Main Container */
+        .container {
+            padding: 30px 40px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            color: #005fa3;
+        }
+
+        /* Details Section */
+        .details {
+            display: flex;
+            justify-content: space-between;
+            gap: 100px;
+            margin-bottom: 100px;
+        }
+
+        .column {
+            width: 48%;
+        }
+
+        .item {
+            margin-bottom: 25px;
+        }
+
+        .label {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .value {
+            font-size: 22px;
+            color: #005fa3;
+            font-weight: 600;
+        }
+
+        /* Bottom Assistance Section */
+        .assistance {
+            text-align: center;
+            margin-top: 120px;
+        }
+
+        .assistance h2 {
+            color: #005fa3;
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .assistance p {
+            color: #005fa3;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        button {
+            padding: 14px 35px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+        }
+
+        .orange-btn {
+            background: #f9a11b;
+            color: white;
+        }
+
+        .outline-btn {
+            background: white;
+            color: #f9a11b;
+            border: 2px solid #f9a11b;
+        }
+
+        /* Floating Icons */
+        .icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .blue { background: #005fa3; }
+        .green { background: #25d366; }
+        .light-blue { background: #3fa9f5; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        Bajaj General
+    </div>
+
+    <div class="container">
+        <div class="title">Welcome to Bajaj General</div>
+
+        <div class="details">
+            <div class="column" id="leftColumn"></div>
+            <div class="column" id="rightColumn"></div>
+        </div>
+
+        <div class="assistance">
+            <h2>Bajaj General Claim Assistance</h2>
+            <p>FIND ALL YOUR CLAIM SOLUTIONS HERE</p>
+
+            <div class="buttons">
+                <button class="orange-btn" onclick="findGarage()">Find Garage</button>
+                <button class="outline-btn" onclick="claimAssistance()">Claim Assistance</button>
+            </div>
+
+            <div class="icons">
+                <div class="icon blue">📞</div>
+                <div class="icon green">💬</div>
+                <div class="icon light-blue">🔗</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const leftData = [
+            ["Insurance Provider", "Bajaj General Insurance"],
+            ["Vehicle Chassis No.", "null"],
+            ["Vehicle Make", "null"],
+            ["Vehicle Model", "null"],
+            ["Vehicle Reg. No.", "null"],
+            ["Vehicle Engine No.", "null"],
+            ["GST Amount", "0"]
+        ];
+
+        const rightData = [
+            ["Policy Number", "OG-25-3787-5004-00000286"],
+            ["Valid upto", "30-JAN-2028"],
+            ["Customer Name", "MR T G SARTAJ AHAMED"],
+            ["Customer ID", "459140611"],
+            ["Net Premium", "324000"],
+            ["Final Premium", "324000"]
+        ];
+
+        function renderData(columnId, data) {
+            const column = document.getElementById(columnId);
+
+            data.forEach(item => {
+                const div = document.createElement("div");
+                div.className = "item";
+                div.innerHTML = `
+                    <div class="label">${item[0]}</div>
+                    <div class="value">${item[1]}</div>
+                `;
+                column.appendChild(div);
+            });
+        }
+
+        renderData("leftColumn", leftData);
+        renderData("rightColumn", rightData);
+
+        function findGarage() {
+            alert("Finding nearest garage...");
+        }
+
+        function claimAssistance() {
+            alert("Redirecting to claim assistance...");
+        }
+    </script>
+
+</body>
+</html>
